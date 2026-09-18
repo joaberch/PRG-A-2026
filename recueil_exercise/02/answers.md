@@ -12,3 +12,52 @@
 | 9   | `double volume_canette_l = 0.33;`                                            | ~ok        | Peut être raccourci<br>`vol_canette_l`                                                      |
 | 10  | `int INT = 3;`                                                               | nok        | Nom pas significatif et peut induire des bugs à long terme                                  |
 
+# 02-déclaration de variables
+1. 
+```c++
+ int n = 1;
+ n = 1 - 2 * n;
+ n = n + 1;
+ --
+ n: 0
+```
+2. 
+```c++
+int n = 1;
+n = n + 1;
+int n = 1 - 2 * n;
+--
+error n already declared
+```
+3. 
+```c++
+int n = 1, p = 2;
+n = (n + 1) * (n - k);
+--
+error k is not declared
+```
+4. 
+```c++
+int n, m = 0;
+n = 2 * n - 1;
+m = n + 1;
+--
+error n is not initialized
+```
+5. 
+```c++
+int n = 5, m = 0;
+const int nb_produit = 10;
+m = n * nb_produit - 1;
+--
+m=49
+```
+6. 
+```c++
+int n = 5, m = 0;
+const int nb_produit = 10;
+nb_produit -= 1;
+m = n * nb_produit;
+--
+error const is already declared
+```
