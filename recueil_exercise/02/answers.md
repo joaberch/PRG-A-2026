@@ -81,3 +81,16 @@ error const is already declared
 > Le type du résultat dépend du type des variables utilisés.
 > Si uniquement des `int` sont utilisés alors le résultat est arrondi en `int`.
 
+
+### 04-type_numerique
+1. Donnez le nom des 5 types entiers signés du C++, du plus court au plus long
+- `signed char | short | int | long | long long`
+2. Idem pour les 5 types entiers non signés
+- `unsigned char | unsigned short | unsigned int | unsigned long | unsigned long long`
+3. Le type int est-il signé ou non signé par défaut ?
+- Signé
+4. Le domaine de définition des entiers est-il fixé par la norme ou dépend-il de l'environnement utilisé
+- Il dépend de l'environnement
+> [!NOTE]
+> Différence selon l'architecture où encore le compilateur utilisé
+> [integer - What does the C++ standard say about the size of int, long? - Stack Overflow](https://stackoverflow.com/questions/589575/what-does-the-c-standard-say-about-the-size-of-int-long)
