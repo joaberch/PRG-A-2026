@@ -61,3 +61,23 @@ m = n * nb_produit;
 --
 error const is already declared
 ```
+
+# 03-type de variable
+
+| #   | Déclaration                | Type   |
+| --- | -------------------------- | ------ |
+| 1   | `??? var1 = 10;`           | int    |
+| 2   | `??? var2 = 1.;`           | double |
+| 3   | `??? var3 = '1';`          | char   |
+| 4   | `??? var4 = 0.5;`          | double |
+| 5   | `??? var5 = 'r';`          | char   |
+| 6   | `??? var6 = true;`         | bool   |
+| 7   | `??? var7 = 25.0;`         | double |
+| 8   | `??? var8 = 3;`            | int    |
+| 9   | `??? var9 = var1 / var8;`  | int    |
+| 10  | `??? var10 = var1 / var4;` | double |
+> [!NOTE]
+> Pour le 9 et 10
+> Le type du résultat dépend du type des variables utilisés.
+> Si uniquement des `int` sont utilisés alors le résultat est arrondi en `int`.
+
