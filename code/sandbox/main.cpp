@@ -54,16 +54,27 @@ void varNameExo() {
     */
 }
 
-void sizeInt() {
-    using type = unsigned char;
-    std::cout << "Taille : " << sizeof(type) << " bytes = " << 00 << "bits.\n";
-    std::cout << "Plage de valeurs : " << int(std::numeric_limits<type>::min()) << " -> " << int(std::numeric_limits<type>::max()) << std::endl;
-    std::cout << "Signe : " << std::boolalpha << std::numeric_limits<type>::is_signed;
+void sizeVar() {
+    using type = unsigned int;
+
+    int bytes = sizeof(type);
+    bool isSigned = std::numeric_limits<type>::is_signed;
+    int bits = std::numeric_limits<type>::digits + isSigned;
+    //digits get the bits used and is_signed add one if used for the sign
+    //else sizeof(type) * CHAR_BIT but not permitted on this exercise
+    std::cout << "Taille : " << bytes << " bytes = " << bits << " bits.\n";
+
+    int min = std::numeric_limits<type>::min();
+    unsigned long long max = std::numeric_limits<type>::max();
+    //unsigned long long to be sure to not have an overflow
+    std::cout << "Plage de valeurs : " << min << " -> " << max << std::endl;
+
+    std::cout << "Signe : " << std::boolalpha << isSigned << std::endl;
 }
 
 int main () {
     //iterate();
     //crash();
     //debugCrash();
-    sizeInt();
+    sizeVar();
 }

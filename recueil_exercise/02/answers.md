@@ -82,7 +82,7 @@ error const is already declared
 > Si uniquement des `int` sont utilisés alors le résultat est arrondi en `int`.
 
 
-### 04-type_numerique
+# 04-type_numerique
 1. Donnez le nom des 5 types entiers signés du C++, du plus court au plus long
 - `signed char | short | int | long | long long`
 2. Idem pour les 5 types entiers non signés
@@ -94,3 +94,33 @@ error const is already declared
 > [!NOTE]
 > Différence selon l'architecture où encore le compilateur utilisé
 > [integer - What does the C++ standard say about the size of int, long? - Stack Overflow](https://stackoverflow.com/questions/589575/what-does-the-c-standard-say-about-the-size-of-int-long)
+> [Fundamental types - cppreference.com](https://en.cppreference.com/cpp/language/types?utm_source=chatgpt.com)
+
+# 05-taille des entiers
+**solution**
+```c++
+void sizeVar() {  
+    using type = unsigned int;  
+  
+    int bytes = sizeof(type);  
+    bool isSigned = std::numeric_limits<type>::is_signed;  
+    int bits = std::numeric_limits<type>::digits + isSigned;  
+    /*
+    digits get the bits used and is_signed add one if
+    used for the sign  
+    else sizeof(type) * CHAR_BIT but not permitted on this
+    exercise
+    */
+    std::cout << "Taille : " << bytes <<
+    " bytes = " << bits << " bits.\n";
+    
+    int min = std::numeric_limits<type>::min();  
+    unsigned long long max = std::numeric_limits<type>::max();  
+    //unsigned long long to be sure to not have an overflow  
+    std::cout << "Plage de valeurs : " << min
+    << " -> " << max << std::endl;  
+    
+    std::cout << "Signe : " << std::boolalpha
+    << isSigned;  
+}
+```
