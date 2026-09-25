@@ -153,3 +153,29 @@ Pour chacun des littéraux suivants, indiquez s'il est valide et, si oui, son ty
 | 6   | `5.`     | ok     | double      | 5         |
 | 7   | `2.5f`   | ok     | float       | 2.5       |
 | 8   | `3e-2`   | ok     | double      | 0.03      |
+
+### 08-mantisse
+**solution**
+```c++
+void mantis() {  
+    double r = 0;  
+    double m = 0;  
+    int b = 0;  
+    int e = 0;  
+  
+    std::cout << "Entrez un nombre reel : ";  
+    std::cin >> r;  
+  
+    b = 10;  
+    e = std::floor(std::log(r)/std::log(b));  
+    m = r/std::pow(b,e);  
+    std::cout << r << " = " << m << " * " << b << "^" << e << std::endl;  
+  
+    b = 2;  
+    e = std::floor(std::log(r)/std::log(b));  
+    m = r/std::pow(b,e);  
+    std::cout << r << " = " << m << " * " << b << "^" << e << std::endl;  
+    //question complementaire : 1 <= m < b donc 1 <= m < 2 si on a une base 2  
+}
+```
+
