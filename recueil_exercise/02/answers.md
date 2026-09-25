@@ -138,3 +138,18 @@ Pour chacun des entiers littéraux suivants, indiquez son type et sa valeur.
 | 6   | `42LL`                | long long          | 42            |
 | 7   | `7U`                  | unsigned int       | 7             |
 | 8   | `1'000'000'000'000LL` | long long          | 1000000000000 |
+
+
+### 07-reels-litteraux
+Pour chacun des littéraux suivants, indiquez s'il est valide et, si oui, son type et ce qu'affiche `cout << littéral << endl;`.
+
+| #   | Littéral | Valide | Type        | Affichage |
+| --- | -------- | ------ | ----------- | --------- |
+| 1   | `1.5`    | ok     | double      | 1.5       |
+| 2   | `1E3`    | ok     | double      | 1000      |
+| 3   | `12.0u`  | nok    |             |           |
+| 4   | `1.0L`   | ok     | long double | 1.0       |
+| 5   | `.5`     | ok     | double      | 0.5       |
+| 6   | `5.`     | ok     | double      | 5         |
+| 7   | `2.5f`   | ok     | float       | 2.5       |
+| 8   | `3e-2`   | ok     | double      | 0.03      |
