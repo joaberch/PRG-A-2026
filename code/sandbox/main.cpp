@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <array>
 #include <limits>
+#include <cmath>
 
 void iterate() {
     int iterationNbr;
@@ -72,9 +73,43 @@ void sizeVar() {
     std::cout << "Signe : " << std::boolalpha << isSigned << std::endl;
 }
 
+void test() {
+    int a = 2147483648u;
+    std::cout << a << std::endl;
+    std::cout << std::numeric_limits<typeof(a)>::min() << std::endl;
+    std::cout << std::numeric_limits<typeof(a)>::max() << std::endl;
+
+    unsigned int aa = 2747483648u;
+    signed int b = -1;
+    std::cout << std::boolalpha << (aa>b) << std::endl;
+}
+
+void mantis() {
+    double r = 0;
+    double m = 0;
+    int b = 0;
+    int e = 0;
+
+    std::cout << "Entrez un nombre reel : ";
+    std::cin >> r;
+
+    b = 10;
+    e = std::floor(std::log(r)/std::log(b));
+    m = r/std::pow(b,e);
+    std::cout << r << " = " << m << " * " << b << "^" << e << std::endl;
+
+    b = 2;
+    e = std::floor(std::log(r)/std::log(b));
+    m = r/std::pow(b,e);
+    std::cout << r << " = " << m << " * " << b << "^" << e << std::endl;
+    //question complementaire : 1 <= m < b donc 1 <= m < 2 si on a une base 2
+}
+
 int main () {
     //iterate();
     //crash();
     //debugCrash();
-    sizeVar();
+    //sizeVar();
+    //test();
+    mantis();
 }
