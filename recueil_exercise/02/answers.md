@@ -124,3 +124,17 @@ void sizeVar() {
     << isSigned;  
 }
 ```
+
+### 06-entiers littéraux
+Pour chacun des entiers littéraux suivants, indiquez son type et sa valeur.
+
+| #   | Littéral              | Type               | Valeur        |
+| --- | --------------------- | ------------------ | ------------- |
+| 1   | `12u`                 | unsigned int       | 12            |
+| 2   | `1L`                  | long               | 1             |
+| 3   | `255ULL`              | unsigned long long | 255           |
+| 4   | `1'000'000`           | int                | 1000000       |
+| 5   | `3ul`                 | unsigned long      | 3             |
+| 6   | `42LL`                | long long          | 42            |
+| 7   | `7U`                  | unsigned int       | 7             |
+| 8   | `1'000'000'000'000LL` | long long          | 1000000000000 |
