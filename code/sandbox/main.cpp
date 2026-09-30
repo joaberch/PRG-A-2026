@@ -147,5 +147,8 @@ int main () {
     //sizeVar();
     //test();
     //mantis();
-    smallestFloat();
+    //smallestFloat();
+    int i = 5, j = 11, n = 10;
+    double x = 5, y = 11;
+    std::cout << y%x;
 }
