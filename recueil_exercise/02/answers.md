@@ -290,3 +290,79 @@ cout << "4. " << z << endl;
 3. A
 4. q
 ```
+
+
+### 14-operator-priority
+Ajouter toutes les parenthèses aux expressions suivantes pour exprimer explicitement l'ordre d'évaluation de l'expression qui existe implicitement en vertu de l'ordre de priorité des opérateurs.
+Par exemple, l'expression
+```c++
+a + b * c; 
+```
+
+doit être ré-écrite
+```c++
+(a + (b * c)); 
+```
+
+puisque la multiplication est prioritaire sur l'addition. De même, l'expression
+```c++
+a / b * c; 
+```
+doit être ré-écrite
+```c++
+((a / b) * c); 
+```
+
+Les opérateurs `/` et `*` de même priorité étant évalués de gauche à droite. Vous pouvez vous aider de la page [C++ Operator Precedence](https://en.cppreference.com/w/cpp/language/operator_precedence) de cppreference.com
+
+---
+
+```c++
+1 * 2 + 3 / 4 * 2
+```
+Devient
+```c++
+((1 * 2) + ((3 / 4) * 2))
+```
+
+```c++
+a + b < c * d + e or f - g + h == i
+```
+Devient
+```c++
+(((a + b) < ((c * d) + e)) or (((f - g) + h) == i)
+```
+
+```c++
+a == b < c
+```
+Devient
+```c++
+(a == (b < c))
+```
+
+```c++
+a < b or c == d and e > b
+```
+Devient
+```c++
+((a < b) or ((c == d) and (e > b)))
+```
+
+```c++
+a * b % c + d % e / f - g
+```
+Devient
+```c++
+((((a * b) % c) + ((d % e) / f)) - g)
+```
+
+```c++
+a - b or c == d > e < f and g
+```
+Devient
+```c++
+((a - b) or ((c == ((d > e) < f)) and g))
+```
+
+
