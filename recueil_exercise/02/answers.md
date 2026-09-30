@@ -388,3 +388,24 @@ int r2 = 72; //2 conversions implicite ('A' en 65 et (char)n en 7 pour faire l'a
 float r3 = 8.5f; //1 conversion implicite (3 en 3.f)
 ```
 
+### 16-evaluate-expression
+Soient les déclarations suivantes :
+```c++
+int i = 5, j = 11; 
+
+double x1 = static_cast<double>(j) / i;
+double x2 = static_cast<double>(j / i);
+double x3 = j / i + .5;
+double x4 = static_cast<double>(j) / i + .5;
+double x5 = static_cast<int>(j + .5) / i;
+```
+Que valent les variables x1 à x5 ?
+```c++
+double x1 = 2.2;
+double x2 = 2.0;
+double x3 = 2.5;
+double x4 = 2.7;
+double x5 = 2.0;
+```
+
+
