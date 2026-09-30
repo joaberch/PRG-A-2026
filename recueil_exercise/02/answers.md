@@ -267,3 +267,26 @@ En cas d'erreur, indiquez la raison.
 | 5   | `-j % i`   | -1       |
 
 
+### 13-operation-char
+Que va afficher le programme C++ suivant ?
+```c++
+char x = 'A'; // 65
+char y = '0'; // 48
+char z; //random
+
+z = x + 4; //z=69='E'
+cout << "1. " << z << endl;
+z += 1; //z=70='F'
+cout << "2. " << z << endl;
+
+z = x + 0; //z=65='A'
+cout << "3. " << z << endl;
+
+z = x + '0'; //z='A'+'0'=65+48=113='q' (used an ASCII table)
+cout << "4. " << z << endl;
+---
+1. E
+2. F
+3. A
+4. q
+```
