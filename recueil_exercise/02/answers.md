@@ -179,3 +179,29 @@ void mantis() {
 }
 ```
 
+
+### 09-float-limit
+1. Quel est le plus petit entier positif qui n'est pas représentable exactement en `float` ? Raisonnez avec le nombre de chiffres significatifs, puis écrivez l'expression C++ qui le calcule à partir de `numeric_limits<float>::digits` et de `pow`.
+> On a donc $2^{24}$ qui nous donne un float rempli de 1 dans le stockage (24 fois 1), si on fait +1 on ne peut plus le représenter donc : **solution=**$2^{24}+1$ est le plus petit entier qui n'est pas représenté correctement en float.
+> Je sais que `numeric_limits<float>::digits` devrait renvoyer 24 donc :
+```c++
+std::pow(2,std::numeric_limits<float>::digits)
+```
+2. Vérifiez avec le programme ci-dessous, puis expliquez pourquoi le test 2 affiche `true` alors que le test 3 affiche `false`.
+```c++
+int n = 16777217;
+cout << boolalpha << setprecision(10);
+cout << "1) " << static_cast<float>(n) << endl;
+cout << "2) " << (static_cast<float>(n) == n) << endl;
+cout << "3) " << (static_cast<int>(static_cast<float>(n)) == n) << endl;
+```
+**La comparaison est effectué en float** Dans le cas 2 l'entier est transformé en float explicitement mais du coup aussi implicitement, pour effectuer la comparaison, ce qui fait `16777216=16777216`.
+**La comparaison est effectué en int** Dans le cas 3 l'entier est converti explicitement en float ce qui change sa valeur de `16777217` en `16777216` puis il est retransformé en int mais cela ne change pas sa valeur qui est désormais `16777216` et cela est comparé à `16777217`
+3. Même question pour le type `double` (`numeric_limits\double>\:\:digits` vaut 53) : quel est le plus petit entier positif non représentable, et dans quel type entier faut-il le stocker pour faire la vérification ?
+```c++
+std::pow(2,std::numeric_limits<double>::digits)+1
+--
+2^{53}+1=9'007'199'254'740'993
+```
+
+

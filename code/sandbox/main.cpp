@@ -3,6 +3,7 @@
 #include <array>
 #include <limits>
 #include <cmath>
+#include <iomanip>
 
 void iterate() {
     int iterationNbr;
@@ -105,11 +106,46 @@ void mantis() {
     //question complementaire : 1 <= m < b donc 1 <= m < 2 si on a une base 2
 }
 
+void smallestFloat() {
+    /*std::cout << std::setprecision(20);
+    short d = std::numeric_limits<float>::digits;
+    std::cout << d << std::endl;
+    const float a = std::pow(2,d);
+    const float b = std::pow(2,d)+1;
+    std::cout << a << std::endl;
+    std::cout << b << std::endl;
+    std::cout << std::boolalpha <<(a == b) << std::endl;*/
+
+    int n = 16777217;
+    std::cout << std::boolalpha << std::setprecision(10);
+    std::cout << "1) " << static_cast<float>(n) << std::endl;
+    std::cout << static_cast<float>(n) << std::endl;
+    std::cout << "2) " << (static_cast<float>(n) == n) << std::endl;
+    std::cout << static_cast<int>(static_cast<float>(n)) << std::endl;
+    std::cout << "3) " << (static_cast<int>(static_cast<float>(n)) == n) << std::endl;
+
+    /*double d = 0.1;
+    std::cout << std::setprecision(200) << d << std::endl;
+    std::cout << std::setprecision(200) << 1004.35 << std::endl;
+    std::cout << -0u;*/
+}
+
+//TODO change from float type (a,b,tolerance) to T interface
+bool almost_equal(float a, float b, float tolerance = std::numeric_limits<float>::epsilon()) {
+    // Handle NaN cases explicitly
+    if (std::isnan(a) || std::isnan(b)) {
+        return false;
+    }
+    // Relative comparison to handle large/small magnitudes
+    return std::fabs(a - b) <= tolerance * std::max(std::fabs(a), std::fabs(b));
+}
+
 int main () {
     //iterate();
     //crash();
     //debugCrash();
     //sizeVar();
     //test();
-    mantis();
+    //mantis();
+    smallestFloat();
 }
