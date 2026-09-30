@@ -366,3 +366,25 @@ Devient
 ```
 
 
+### 15-inversion-implicite
+Soient les déclarations suivantes :
+```c
+char c = 'A';
+int n = 7;
+float x = 1.25f;
+double z = 5.5;
+```
+Pour chacune des expressions suivantes, indiquez :
+- combien de conversions implicites sont mises en œuvre et lesquelles
+- ce qu'elle vaut et quel est son type (c'est-à-dire le type à déclarer pour une variable `r1` … `r3` qui la stockerait sans conversion)
+
+```c
+2 * x + c                          // r1
+static_cast<char>(n) + c           // r2
+static_cast<float>(z) + n / 2      // r3
+--
+float r1 = 67.5; //3 conversions implicite (2 en 2f) ('A' en 65 puis 65 en 65f)
+int r2 = 72; //2 conversions implicite ('A' en 65 et (char)n en 7 pour faire l'addition)
+float r3 = 8.5f; //1 conversion implicite (3 en 3.f)
+```
+
