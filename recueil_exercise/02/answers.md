@@ -440,3 +440,75 @@ int main() {
 8) 100'000'000 //24bits de precision
 ```
 
+### 18-entier
+Pour chacune des lignes de code suivantes, indiquer la valeur afficher, à défault la raison de l'erreur.
+On suppose que le système utilise le modèle de données LP64.
+
+|Type|Bit|
+|---|--:|
+|`char`|8|
+|`short`|16|
+|`int`|32|
+|`long`|64|
+|`long long`|64|
+|`void*`|64|
+
+```c++
+cout << numeric_limits<short>::max()          << endl; // 32767
+cout << numeric_limits<unsigned short>::max() << endl; // 65535
+cout << numeric_limits<unsigned int>::max()   << endl; // 4294967295
+cout << numeric_limits<long>::max()           << endl; // 9223372036854775807
+```
+
+```c++
+// 1
+signed short sh = numeric_limits<short>::max();
+cout << sh; //32'767
+```
+
+```c++
+// 2
+unsigned short sh = numeric_limits<short>::max();
+cout << sh; //32'767
+```
+
+```c++
+// 3
+unsigned short sh = numeric_limits<unsigned short>::max();
+cout << sh; //65'535
+```
+
+```c++
+// 4
+unsigned short sh = numeric_limits<unsigned short>::max() + 1;
+cout << sh; //0
+```
+
+```c++
+// 5
+unsigned short sh = numeric_limits<unsigned short>::max();
+cout << sh + 1; //65'536
+```
+
+```c++
+// 6
+unsigned short sh = -1;
+cout << sh; //65'535
+```
+
+```c++
+// 7
+cout << "Wallis = " << 2/1 * 2/3 * 4/3 * 4/5 << endl;
+//Wallis = 0
+```
+
+```c++
+// 8
+
+// vérifier s'il y a débordement pour a + b
+int a, b;
+bool debordement = a>=0 ? std::numeric_limits<int>::max()-a<b : b>std::numeric_limits<int>::min()-a;
+cout << "debordement : " << boolalpha << debordement;
+```
+
+
