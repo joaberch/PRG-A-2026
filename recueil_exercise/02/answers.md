@@ -572,3 +572,42 @@ float reel = 1e7 + 1.01;
 cout << fixed << reel << endl; //24bits significatis (float) donc 10'000'001
 ```
 
+### 20-entier-reel
+Pour chacune des lignes de code suivantes, indiquer la valeur afficher, à défault la raison de l'erreur.
+On suppose que le système utilise le modèle de données LP64.
+
+|Type|Bit|Type|Bit|
+|---|:-:|---|:-:|
+|`char`|8|`void*`|64|
+|`short`|16|`float`|32|
+|`int`|32|`double`|64|
+|`long`|64|`long double`|64|
+|`long long`|64|||
+
+```c
+// 1
+cout << static_cast<double>(1 / 3); //0,0
+```
+
+```c++
+// 2
+cout << static_cast<double>(1) / 3; //0,3333
+```
+
+```c++
+// 3
+int entier = 1e42;
+cout << entier << endl; //approximé à -2milliards
+```
+
+```c++
+// 4
+float reel = 1'234'567'890;
+cout << fixed << reel << endl; //1'234'567'890.000000
+```
+
+```c++
+// 5
+bool egalite = static_cast<float>(1234567890) == 1234567890;
+cout << "egalité : " << boolaplpha << egalite; //égalité : true
+```
