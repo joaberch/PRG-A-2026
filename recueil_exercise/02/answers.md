@@ -611,3 +611,29 @@ cout << fixed << reel << endl; //1'234'567'890.000000
 bool egalite = static_cast<float>(1234567890) == 1234567890;
 cout << "egalité : " << boolaplpha << egalite; //égalité : true
 ```
+
+### 21-references
+Coder en C++ les questions suivantes
+**NB** : les instructions sont dépendantes les unes des autres
+1. Créer une variable `var1` initialisée 1
+2. Créer une référence `ref1` sur `var1`
+3. Créer une référence `ref2` non initialisée
+4. Passer la valeur de `var1` à 2
+5. Passer la valeur de `ref1` à 3
+6. Afficher la valeur de `var1`
+7. Afficher la valeur de `ref1`
+8. Créer une référence constante `cref1` sur `var1`, puis tenter de passer la valeur de `cref1` à 4
+
+```c++
+int var1 = 1;       //1
+int& ref1 = var1;   //2
+//int& ref2;        //3 not doable
+var1 = 2;           //4
+ref1 = 3;           //5
+std::cout << var1 << std::endl;  //6
+std::cout << ref1 << std::endl;  //7
+const int& ref2 = var1;          //8
+//ref2 = 4;         //8 not doable
+var1 = 4;           //8 workaround
+std::cout << ref2 << std::endl; //8 proof of work
+```
