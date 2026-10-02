@@ -675,3 +675,37 @@ void litre() {
     std::cout << "litre : " << litreTot << std::endl;  
 }
 ```
+
+### 23-conversion
+Ecrire un programme C++ permettant de réaliser les trois conversions d'unités suivantes :
+- mètres en miles
+- mètres en pieds (feet en anglais)
+- mètres en pouces (inches en anglais).
+Le nombre de mètres est saisi par l'utilisateur sous la forme d'un entier > 0. On suppose ladite saisie correcte.
+Un exemple d'exécution :
+```
+Entrez le nombre de metres a convertir (entier > 0) : 1000
+1000 [m]
+= 0.621371 [mile]
+= 3280.84 [ft]
+= 39370.1 [inch]
+```
+
+**Réponse**
+```
+constexpr double milesConvert = 0.000621371;  
+constexpr double feetConvert = 3.2808399;  
+constexpr double inchConvert = 39.3700787;  
+  
+std::cout << "Entrez le nombre de metres a convertir (entier > 0) :";  
+int meters = 0;  
+std::cin >> meters;  
+std::cout << meters << " [m]" << std::endl;  
+const double miles = meters*milesConvert;  
+std::cout << miles << " [mile]" << std::endl;  
+const double feet = meters*feetConvert;  
+std::cout << feet << " [feet]" << std::endl;  
+const double inch = meters*inchConvert;  
+std::cout << inch << " [inch]" << std::endl;
+```
+
