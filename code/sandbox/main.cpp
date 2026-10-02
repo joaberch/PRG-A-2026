@@ -140,6 +140,69 @@ bool almost_equal(float a, float b, float tolerance = std::numeric_limits<float>
     return std::fabs(a - b) <= tolerance * std::max(std::fabs(a), std::fabs(b));
 }
 
+void references() {
+    int var1 = 1;
+    int& ref1 = var1;
+    //int& ref2;
+    var1 = 2;
+    ref1 = 3;
+    std::cout << var1 << std::endl;
+    std::cout << ref1 << std::endl;
+    const int& ref2 = var1;
+    //ref2 = 4;
+    var1 = 4;
+    std::cout << ref2 << std::endl;
+}
+
+double volumeCylinder(double radius, double height) {
+    return radius * radius * height * M_PI;
+}
+
+double volumeCone(double radius1, double radius2, double height) {
+    return (std::pow(radius1, 2)+std::pow(radius2, 2)+radius1*radius2) * height * M_PI /3; //
+}
+
+void litre() {
+    double r1 = 0; //cm
+    double r2 = 0; //cm
+    double h1 = 0; //cm
+    double h2 = 0; //cm
+    double h3 = 0; //cm
+    std::cout << "Entrez le rayon du cylindre 1 [cm]      :";
+    std::cin >> r1;
+    std::cout << "Entrez le rayon du cylindre 2 [cm]      :";
+    std::cin >> r2;
+    std::cout << "Entrez la hauteur du cylindre 1 [cm]    :";
+    std::cin >> h1;
+    std::cout << "Entrez la hauteur du cylindre 2 [cm]    :";
+    std::cin >> h2;
+    std::cout << "Entrez la hauteur du tronc de cone [cm] :";
+    std::cin >> h3;
+
+    double hugeCylinderV = volumeCylinder(r1, h1);
+    double smallCylinderV = volumeCylinder(r2, h2);
+    double coneV = volumeCone(r1, r2, h3);
+    double litreTot = (hugeCylinderV + smallCylinderV + coneV)/1000;
+    std::cout << "litre : " << litreTot << std::endl;
+}
+
+void convert() {
+    constexpr double milesConvert = 0.000621371;
+    constexpr double feetConvert = 3.2808399;
+    constexpr double inchConvert = 39.3700787;
+
+    std::cout << "Entrez le nombre de metres a convertir (entier > 0) :";
+    int meters = 0;
+    std::cin >> meters;
+    std::cout << meters << " [m]" << std::endl;
+    const double miles = meters*milesConvert;
+    std::cout << miles << " [mile]" << std::endl;
+    const double feet = meters*feetConvert;
+    std::cout << feet << " [feet]" << std::endl;
+    const double inch = meters*inchConvert;
+    std::cout << inch << " [inch]" << std::endl;
+}
+
 int main () {
     //iterate();
     //crash();
@@ -148,7 +211,7 @@ int main () {
     //test();
     //mantis();
     //smallestFloat();
-    int i = 5, j = 11, n = 10;
-    double x = 5, y = 11;
-    std::cout << y%x;
+    //references();
+    //litre();
+    convert();
 }
