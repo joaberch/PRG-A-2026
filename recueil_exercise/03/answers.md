@@ -98,3 +98,65 @@ if (a<0) {
 ```
 
 
+#### 04-switch
+Soit le programme suivant
+
+```c++
+#include <iostream>
+using namespace std;
+
+int main() {
+   int n; cin >> n;
+   
+   switch (n) {
+      case 0:  cout << "A";
+      case 1:
+      case 2:  cout << "B";
+               break;
+      case 3:
+      case 4:
+      case 5:  cout << "C";
+      default: cout << "D";
+   }
+}
+```
+
+Que va-t-il afficher lorsque l'utilisateur entre comme valeur
+
+```c++
+0
+--
+AB
+```
+
+```c++
+1
+--
+B
+```
+
+```c++
+2
+--
+B
+```
+
+```c++
+4
+--
+CD
+```
+
+```c++
+6
+--
+D
+```
+
+```c++
+-1
+--
+D
+```
+
+
