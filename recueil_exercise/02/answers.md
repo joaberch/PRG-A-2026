@@ -637,3 +637,41 @@ const int& ref2 = var1;          //8
 var1 = 4;           //8 workaround
 std::cout << ref2 << std::endl; //8 proof of work
 ```
+
+
+### 22-volume
+Comme illustré ci-dessous, la forme d'une bouteille peut s'approximer par deux cylindres, de rayons r1 et r2 et de hauteurs h1 et h2, joints par un cône tronqué de hauteur h3.
+Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir (en centimètres) les cinq paramètres ci-dessus, calcule puis affiche la contenance en litres de la bouteille.
+```c++
+double volumeCylinder(double radius, double height) {  
+    return radius * radius * height * M_PI;  
+}  
+  
+double volumeCone(double radius1, double radius2, double height) {  
+    return (std::pow(radius1, 2)+std::pow(radius2, 2)+radius1*radius2) * height * M_PI /3; //  
+}  
+  
+void litre() {  
+    double r1 = 0; //cm  
+    double r2 = 0; //cm  
+    double h1 = 0; //cm  
+    double h2 = 0; //cm  
+    double h3 = 0; //cm  
+    std::cout << "Entrez le rayon du cylindre 1 [cm]      :";  
+    std::cin >> r1;  
+    std::cout << "Entrez le rayon du cylindre 2 [cm]      :";  
+    std::cin >> r2;  
+    std::cout << "Entrez la hauteur du cylindre 1 [cm]    :";  
+    std::cin >> h1;  
+    std::cout << "Entrez la hauteur du cylindre 2 [cm]    :";  
+    std::cin >> h2;  
+    std::cout << "Entrez la hauteur du tronc de cone [cm] :";  
+    std::cin >> h3;  
+  
+    double hugeCylinderV = volumeCylinder(r1, h1);  
+    double smallCylinderV = volumeCylinder(r2, h2);  
+    double coneV = volumeCone(r1, r2, h3);  
+    double litreTot = (hugeCylinderV + smallCylinderV + coneV)/1000;  
+    std::cout << "litre : " << litreTot << std::endl;  
+}
+```
