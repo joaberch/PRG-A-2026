@@ -409,3 +409,34 @@ double x5 = 2.0;
 ```
 
 
+### 17-evaluate-expression
+**TODO - bon exo révision**
+Que va afficher le programme ci-dessous ? Expliquer les résultats obtenus.
+```c++
+#include <cstdlib>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+int main() {
+   cout << fixed << setprecision(0);
+   cout << "1) " << 3 * 1000 * 1000 * 1000 << endl; //int 3'000'000'000
+   cout << "2) " << 3.0 * 1000 * 1000 * 1000 << endl; //double 3'000'000'000
+   cout << "3) " << 100000 * 100000 * 100000.0 << endl;
+   cout << "4) " << 100000.0 * 100000 * 100000 << endl;
+   cout << "5) " << 1E7 + 1.0 << endl;
+   cout << "6) " << 1E7f + 1.f << endl;
+   cout << "7) " << 1E8 + 1.0 << endl;
+   cout << "8) " << 1E8f + 1.f << endl;
+}
+--
+1) //3'000'000'000 en int donc "-qqch" si un int est de 32bits
+2) 3000000000 //en double
+3) //10'000*10'000 en int peut déborder, ce qui est ensuite multiplier par un double, donc "(-)qqch" de grand en double ou du moins un resultat aleatoire 
+4) 1'000'000'000'000'000
+5) 10'000'001
+6) 10'000'001
+7) 100'000'001
+8) 100'000'000 //24bits de precision
+```
+
