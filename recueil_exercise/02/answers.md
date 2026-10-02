@@ -512,3 +512,63 @@ cout << "debordement : " << boolalpha << debordement;
 ```
 
 
+### 19-reel
+Pour chacune des lignes de code suivantes, indiquer la valeur afficher, à défault la raison de l'erreur.
+On suppose que le système utilise le modèle de données LP64.
+
+|Type|Bit|
+|---|:-:|
+|`float`|32|
+|`double`|64|
+|`long double`|64|
+
+```c++
+cout << numeric_limits<float>::max()   << endl; // 3.40282e+38
+cout << numeric_limits<float>::min()   << endl; // 1.17549e-38
+cout << numeric_limits<double>::max()  << endl; // 1.79769e+308
+cout << numeric_limits<double>::min()  << endl; // 2.22507e-308
+```
+
+```c++
+// 1
+cout << round(floor(-9.8) / ceil(-4.9)); //3
+```
+
+```c++
+// 2
+double x = numeric_limits<double>::max();
+cout << 2 * x / x; //inf
+```
+
+```c++
+// 3
+bool egalite = 1 / 3. == 0.3333333333333333;
+cout << "egalité : " << boolalpha << egalite; //égalité : false
+```
+
+```c++
+// 4
+// coder ceci correctement de manière à résoudre ce problème correctement pour des double
+
+bool egalite = abs(1./3.-0.3333333333333333)<1e-9;
+cout << "egalité : " << boolalpha << egalite;
+```
+
+```c++
+// 5
+bool egalite = static_cast<double>(1 / 3.) == static_cast<float>(1 / 3.); //err
+cout << "egalité : " << boolalpha << egalite;
+```
+
+```c++
+// 6
+float reel = 3.14159e42;
+cout << reel << endl; //max en e38 donc inf
+```
+
+```c++
+// 7
+float reel = 1e7 + 1.01;
+cout << fixed << reel << endl; //24bits significatis (float) donc 10'000'001
+```
+
