@@ -4,6 +4,7 @@
 #include <limits>
 #include <cmath>
 #include <iomanip>
+#include <unordered_map>
 
 void iterate() {
     int iterationNbr;
@@ -203,7 +204,140 @@ void convert() {
     std::cout << inch << " [inch]" << std::endl;
 }
 
+void dayInMonth() {
+    std::cout << "Entrez un no de mois (1-12) : ";
+    short no_mois; std::cin >> no_mois;
+    std::unordered_map<short,short> map = {
+        {1,31},
+        {3, 31},
+        {4, 30},
+        {5, 31},
+        {6, 30},
+        {7, 31},
+        {8, 31},
+        {9, 30},
+        {10, 31},
+        {11, 30},
+        {12, 31},
+    };
+
+    std::cout << "Ce mois comporte ";
+
+    if (no_mois == 2) {
+        std::cout << "28 ou 29";
+    } else {
+        std::cout << map.at(no_mois);
+    }
+    // votre code vient ici
+
+    std::cout << " jours." << std::endl;
+}
+
+void primeNumberAtkin() {
+    std::cout << "Entrez un numero atkin (1) : ";
+    int limit; std::cin >> limit;
+    bool prime[limit];
+    for (int i = 0; i < limit; i++) {
+        prime[i] = false;
+    }
+    prime[2] = true;
+    prime[3] = true;
+
+    int n = 0;
+    for (int x = 1; x < std::sqrt(limit); x++) {
+        for (int y = 1; y < std::sqrt(limit); y++) {
+            //1.
+            n=4*x*x+y*y;
+            if (n<limit&&(n%60==1||n%60==13||n%60==17||n%60==29||n%60==37||n%60==41||n%60==49||n%60==53)) {
+                prime[n] = !prime[n];
+            }
+
+            //2.
+            n=3*x*x+y*y;
+            if (n<limit&&(n%60==7||n%60==19||n%60==31||n%60==43)) {
+                prime[n] = !prime[n];
+            }
+
+            //3.
+            n=3*x*x-y*y;
+            if (n<limit&&x>y&&(n%60==11||n%60==23||n%60==47||n%60==59)) {
+                prime[n] = !prime[n];
+            }
+        }
+    }
+
+    for (int z=5;z<std::sqrt(limit);z++) {
+        if (prime[z]) {
+            for (int a=1;a<std::sqrt(limit)/z*z;a++) {
+                prime[a*z^2] = false;
+            }
+        }
+    }
+
+    int cptr = 0;
+    for (int i=0;i<limit;i++) {
+        if (prime[i]) {
+            cptr++;
+            std::cout << std::setw(10) << i;
+            if (cptr%5==0) {
+                std::cout << std::endl;
+            }
+        }
+    }
+}
+
+void primeNumberEratosthene() {
+    std::cout << "Entrez un numero erat (1) : ";
+    int limit; std::cin >> limit;
+    bool prime[limit];
+    for (int i = 0; i < limit; i++) {
+        prime[i] = true;
+    }
+
+    for (int i = 2; i*i < limit; i++) {
+        if (prime[i]) {
+            for (int m = i*i; m < limit; m+=i) {
+                prime[m] = false;
+            }
+        }
+    }
+
+    int cptr = 0;
+    for (int i=0;i<limit;i++) {
+        if (prime[i]) {
+            cptr++;
+            std::cout << std::setw(10) << i;
+            if (cptr%5==0) {
+                std::cout << std::endl;
+            }
+        }
+    }
+}
+
+void f(long a) {
+    std::cout << a;
+}
+
+void f(unsigned long a) {
+    std::cout << a;
+}
+
+void log(int level);
+void log(int level, int destination = 0);
+
+template <typename T>
+T maximum(T a, T b) {
+    //int&& d = 42;
+    return a < b ? b : a;
+}
+
+void fa(const double& j) {
+    //j = 42;
+}
+
 int main () {
+    int i = 3;
+    fa(i);
     //iterate();
     //crash();
     //debugCrash();
@@ -213,5 +347,12 @@ int main () {
     //smallestFloat();
     //references();
     //litre();
-    convert();
+    //convert();
+    //dayInMonth();
+    //primeNumberAtkin();
+    //primeNumberEratosthene();
+    //f(10); //err
+    //log(2); //err
+    //std::cout << maximum(2,3) << std::endl;
+    //std::cout << maximum(4.6,5.8) << std::endl;
 }
