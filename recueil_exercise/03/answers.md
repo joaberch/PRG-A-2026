@@ -299,3 +299,43 @@ b = !(j==0) && (i/j<k)
 ```
 
 
+#### 08-shipping-costs
+Une société suisse tarife ses frais de livraison comme suit :
+- 5.00 CHF si livraison en Suisse, à l'exception des cantons des Grisons et du Tessin où les frais de livraison se monte à 7.00 CHF
+- 7.00 CHF si livraison au Liechtenstein.
+- 10.00 CHF partout ailleurs dans le monde
+
+Complétez le programme qui suit pour qu'il détermine et affiche le tarif de livraison. Il ne peut poser que des questions auxquelles l'utilisateur répond que par "O" (oui) ou "N" (non)
+
+```c++
+#include <iostream>
+
+using namespace std;
+
+int main() {
+   cout << "Livraison en Suisse ? (O/N) ";
+   char reponse1; cin >> reponse1;
+   
+   if (response1=='O') {
+	   cout << "Livraison aux Grisons ou au Tessin ? (O/N)";
+	   char response2; cin >> response2;
+	   if (response2 == 'O') {
+		   cout << "Tarif de livraison : 7.00CHF";
+	   } else {
+		   cout << "Tarif de livraison : 5.00CHF";
+	   }
+	   return;
+   }
+   
+   cout << "Livraison au Liechtenstein ? (O/N)";
+   char response3; cin >> response3;
+   
+   if (response3=='O') {
+	   cout << "Tarif de livraison : 7.00CHF";
+   } else {
+	   cout << "Tarif de livraison : 10.00CHF";
+   }
+}
+```
+
+
