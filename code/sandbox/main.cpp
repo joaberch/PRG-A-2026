@@ -335,6 +335,31 @@ void fa(const double& j) {
     //j = 42;
 }
 
+void ects() {
+    std::cout << "Entrez la note UNIGE : ";
+    double input; std::cin >> input;
+    if (input > 6 || input < 1) {
+        std::cout << "Erreur";
+    }
+
+    char note = 'G';
+    if (input >= 5.25) {
+        note = 'A';
+    } else if (input >= 4.75) {
+        note = 'B';
+    } else if (input >= 4.5) {
+        note = 'C';
+    } else if (input >= 4.25) {
+        note = 'D';
+    } else if (input >= 4) {
+        note = 'E';
+    } else {
+        note = 'F';
+    }
+
+    std::cout << "La note ECTS est : " << note;
+}
+
 int main () {
     int i = 3;
     fa(i);
@@ -351,8 +376,5 @@ int main () {
     //dayInMonth();
     //primeNumberAtkin();
     //primeNumberEratosthene();
-    //f(10); //err
-    //log(2); //err
-    //std::cout << maximum(2,3) << std::endl;
-    //std::cout << maximum(4.6,5.8) << std::endl;
+    ects();
 }
