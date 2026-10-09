@@ -416,3 +416,30 @@ std::cout << "La note ECTS est : " << note;
 ```
 
 
+#### 11-equations
+Complétez le programme suivant qui demande à l'utilisateur les paramètres a, b et c d'une équation du second degré pour qu'il en affiche toutes les solutions réelles s'il y en a.
+
+Prenez soin d'envisager tous les cas possibles pour les paramètres a, b, et c.
+```c++
+std::cout << "Donnez les valeurs de a, b, et c de l'equation a*x^2+b*x+c : ";  
+double a, b, c;  
+std::cin >> a >> b >> c;  
+  
+double delta = b*b-4*a*c;  
+if (delta < 0) {  
+    std::cout << "Aucune solution";  
+    return;  
+}  
+if (delta > 0) {  
+    double s1 = (-b+std::sqrt(delta))/(2*a);  
+    double s2 = (-b-std::sqrt(delta))/(2*a);  
+    std::cout << "2 solutions : " << s1 << " et " << s2 << std::endl;  
+} else {  
+    if (std::isnan(-b/(2*a))) {  
+        std::cout << "x = R";  
+    }  
+    std::cout << "1 solution : " << -b/(2*a) << std::endl;  
+}
+```
+
+
