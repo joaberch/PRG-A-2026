@@ -589,3 +589,33 @@ cout << i << ' ' << j;
 ```
 
 
+#### 14-bank
+Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir
+- un montant initial
+- un montant cible
+- un taux d'intérêt annuel (en %)
+détermine et affiche combien d'années (entières) sont nécessaires pour atteindre ou dépasser le montant cible. Notons que
+- Les saisies utilisateur sont supposées correctes
+- Le taux d'intérêt annuel est supposé rester constant au cours du temps
+**Code** :
+```c++
+double initial;  
+double final;  
+double interest;  
+std::cout << "Entrez le montant initial > "; std:: cin >> initial;  
+std::cout << "Entrez le montant cible > "; std:: cin >> final;  
+std::cout << "Entrez le taux d'interet annuel en % > "; std:: cin >> interest;  
+  
+int year = 0;  
+if (interest < 0) {  
+    std::cout << "Impossible";  
+}  
+while (initial < final) {  
+    year++;  
+    initial = initial*(1+interest/100);  
+}  
+std::cout << "Le montant cible est atteint apres " << year << " ans.";
+```
+
+
+

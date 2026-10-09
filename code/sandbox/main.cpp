@@ -382,6 +382,25 @@ void equations() {
     }
 }
 
+void bank() {
+    double initial;
+    double final;
+    double interest;
+    std::cout << "Entrez le montant initial > "; std:: cin >> initial;
+    std::cout << "Entrez le montant cible > "; std:: cin >> final;
+    std::cout << "Entrez le taux d'interet annuel en % > "; std:: cin >> interest;
+
+    int year = 0;
+    if (interest < 0) {
+        std::cout << "Impossible";
+    }
+    while (initial < final) {
+        year++;
+        initial = initial*(1+interest/100);
+    }
+    std::cout << "Le montant cible est atteint apres " << year << " ans.";
+}
+
 int main () {
     //iterate();
     //crash();
@@ -397,5 +416,6 @@ int main () {
     //primeNumberAtkin();
     //primeNumberEratosthene();
     //ects();
-    equations();
+    //equations();
+    bank();
 }
