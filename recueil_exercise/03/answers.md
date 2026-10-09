@@ -443,3 +443,86 @@ if (delta > 0) {
 ```
 
 
+#### 12-while
+Que va afficher à l'exécution chacun des groupes d'instructions ci-dessous ?
+```c++
+// 1
+int i = 0;
+while (i - 10) {
+   i += 2; cout << i << " ";
+}
+--
+2 4 6 8 10
+```
+
+```c++
+// 2
+int i = 0;
+while (i - 10)
+   i += 2; cout << i << " ";
+--
+10
+```
+
+```c++
+// 3
+int i = 0;
+while (i < 11) {
+   i += 2; cout << i << " ";
+}
+--
+2 4 6 8 10 12
+```
+
+```c++
+// 4
+int i = 11;
+while (i--) {
+   cout << i-- << " ";
+}
+--
+10 8 6 4 2 0 -2 -4 -6 ...
+```
+
+```c++
+//5
+int i = 12;
+while (i--) {
+   cout << --i << " ";
+}
+--
+10 8 6 4 2 0
+```
+
+```c++
+// 6	
+int i = 0;
+while (i++ < 10) {
+   cout << i-- << " ";
+}
+--
+1 1 1 1 1 1 ...
+```
+
+```c++
+// 7	
+int i = 1;
+while (i <= 5) {
+   cout << 2 * i++ << " ";
+}
+--
+2 4 6 8 10
+```
+
+```c++
+// 8
+int i = 1;
+while (i != 9) {
+   cout << (i = i + 2) << " ";
+}
+--
+3 5 7 9
+```
+
+
+
