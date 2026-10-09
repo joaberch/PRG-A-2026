@@ -339,3 +339,35 @@ int main() {
 ```
 
 
+#### 09-day-in-month
+Compléter le programme C++ ci-dessous pour qu'il affiche combien le mois choisi (1 pour janvier, 2 pour février, etc) compte de jours. Si l'utilisateur entre la valeur 2, le programme doit répondre : "Ce mois comporte 28 ou 29 jours"
+
+```c++
+std::cout << "Entrez un no de mois (1-12) : ";  
+short no_mois; std::cin >> no_mois;  
+std::unordered_map<short,short> map = {  
+    {1,31},  
+    {3, 31},  
+    {4, 30},  
+    {5, 31},  
+    {6, 30},  
+    {7, 31},  
+    {8, 31},  
+    {9, 30},  
+    {10, 31},  
+    {11, 30},  
+    {12, 31},  
+};  
+  
+std::cout << "Ce mois comporte ";  
+  
+if (no_mois == 2) {  
+    std::cout << "28 ou 29";  
+} else {  
+    std::cout << map.at(no_mois);  
+}
+ 
+std::cout << " jours." << std::endl;
+```
+
+
