@@ -526,3 +526,66 @@ while (i != 9) {
 
 
 
+#### 13-while2
+Que va afficher à l'exécution chacun des groupes d'instructions ci-dessous ?
+
+```c++
+// 1
+int i = 0;
+while (i <= 5) 
+   i++;
+cout << i;
+--
+6
+```
+
+```c++
+// 2
+int i = 0, j = 0;
+while (i <= 5) 
+   i += j++;
+cout << i << ' ' << j;
+--
+6 4
+```
+
+```c++
+// 3
+int i = 0, j = 0;
+while (i <= 5) 
+   i += ++j;
+cout << i << ' ' << j;
+--
+6 3
+```
+
+```c++
+// 4
+int i = 0, j = 0;
+while (j <= 5) 
+   i += j++;
+cout << i << ' ' << j;
+--
+15 6
+```
+
+```c++
+//5
+int i = 0, j = 0;
+while (j <= 5)
+   i += ++j;
+cout << i << ' ' << j;
+--
+21 6
+```
+
+```c++
+// 6
+int i = 0, j = 0;
+while (i <= 5) i += 2; j++;
+cout << i << ' ' << j;
+--
+6 1
+```
+
+
