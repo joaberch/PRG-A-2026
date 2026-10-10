@@ -417,6 +417,28 @@ void bank2() {
     std::cout << "Le montant cible est de " << final << " ans.";
 }
 
+void bank3() {
+    double initial;
+    double interest;
+    int year;
+    do {
+        std::cout << "Entrez le montant initial > "; std:: cin >> initial;
+    } while (initial < 1000);
+    do {
+        std::cout << "Entrez le nombre d'annees > "; std:: cin >> year;
+    } while (year <=0);
+    do {
+        std::cout << "Entrez les interets > "; std:: cin >> interest;
+    } while (interest < -5||interest > 50);
+
+    double final = initial;
+    for (int i = 0; i < year; i++) {
+        final = final*(1+interest/100);
+    }
+
+    std::cout << "Le montant cible est de " << final << " ans.";
+}
+
 int main () {
     //iterate();
     //crash();

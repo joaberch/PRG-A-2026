@@ -842,3 +842,34 @@ err
 ```
 
 
+#### 19-bank3
+Modifiez votre code de l'exercice "Accroissement d'un avoir bancaire (2)" pour qu'il vérifie que
+- le montant initial est >= 1000
+- le taux d'intérêt (en pourcents) est entre -5 et +50 (compris)
+- le nombre d'années est > 0
+
+Reposez exactement la même question tant que l'utilisateur ne répond pas avec un nombre valide. Utilisez des boucles `do ... while`
+**code** : 
+```c++
+double initial;  
+double interest;  
+int year;  
+do {  
+    std::cout << "Entrez le montant initial > "; std:: cin >> initial;  
+} while (initial < 1000);  
+do {  
+    std::cout << "Entrez le nombre d'annees > "; std:: cin >> year;  
+} while (year <=0);  
+do {  
+    std::cout << "Entrez les interets > "; std:: cin >> interest;  
+} while (interest < -5||interest > 50);  
+  
+double final = initial;  
+for (int i = 0; i < year; i++) {  
+    final = final*(1+interest/100);  
+}  
+  
+std::cout << "Le montant cible est de " << final << " ans.";
+```
+
+
