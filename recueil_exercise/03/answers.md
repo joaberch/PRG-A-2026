@@ -1001,3 +1001,28 @@ oxoxo
 ```
 
 
+#### 22-star-triangle
+Ecrire un programme C++ qui affiche un triangle comme dans l'exemple ci-dessous. La hauteur du triangle (càd le nombre de lignes) est fixée par l’utilisateur. Faire en sorte :
+- que l'utilisateur soit invité à refaire sa saisie s'il entre une hauteur négative ou nulle
+- que la dernière ligne du triangle s'affiche sur le bord gauche de l'écran
+**code** :
+```c++
+int height = 0;  
+do {  
+    std::cout << "Hauteur du triangle (h > 0) : ";  
+    std::cin >> height;  
+} while (height <= 0);  
+  
+for (int i = 0; i < height; i++) {  
+    for (int j = 0; j < height*2+1; j++) {  
+        if (j+i>=height-1&&j-i<=height-1) {  
+            std::cout << "*";  
+        } else {  
+            std::cout << " ";  
+        }  
+    }  
+    std::cout << std::endl;  
+}
+```
+
+

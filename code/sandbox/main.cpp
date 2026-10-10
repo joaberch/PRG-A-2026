@@ -470,6 +470,25 @@ void bounce() {
     std::cout << "La hauteur atteinte apres " << bounceNbr << " rebonds : " << height << " [m]";
 }
 
+void starTriangle() {
+    int height = 0;
+    do {
+        std::cout << "Hauteur du triangle (h > 0) : ";
+        std::cin >> height;
+    } while (height <= 0);
+
+    for (int i = 0; i < height; i++) {
+        for (int j = 0; j < height*2+1; j++) {
+            if (j+i>=height-1&&j-i<=height-1) {
+                std::cout << "*";
+            } else {
+                std::cout << " ";
+            }
+        }
+        std::cout << std::endl;
+    }
+}
+
 int main () {
     //iterate();
     //crash();
@@ -489,5 +508,6 @@ int main () {
     //bank();
     //bank2();
     //bank3();
-    bounce();
+    //bounce();
+    starTriangle();
 }
