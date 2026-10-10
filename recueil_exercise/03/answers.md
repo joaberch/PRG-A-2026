@@ -679,3 +679,70 @@ for (int i = 1; i < 10; ++i) {
 ```
 
 
+#### 16-for2
+Pour chacun des cas ci-dessous, indiquer combien de fois la boucle est exécutée :
+
+```c++
+// 1
+for (int i = 1; i < 10; ++i) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+9
+```
+
+```c++
+// 2
+for (int i = 1; i <= 10; ++i) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+10
+```
+
+```c++
+// 3
+for (int i = 0; i < 10; ++i) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+10
+```
+
+```c++
+// 4
+for (int i = 10; i > 0; --i) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+10
+```
+
+```c++
+// 5
+for (int i = -10; i <= 10; ++i) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+21
+```
+
+```c++
+// 6
+for (int i = -10; i <= 10; i += 2) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+11
+```
+
+```c++
+// 7
+for (int i = -10; i <= 10; i += 3) {
+   // le corps de la boucle ne modifie pas i et ne saute pas
+}
+--
+7
+```
+
+
