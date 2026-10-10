@@ -873,3 +873,48 @@ std::cout << "Le montant cible est de " << final << " ans.";
 ```
 
 
+#### 20-bal-bounce
+Lorsqu'une balle tombe d'une hauteur initiale , sa vitesse d'impact au sol est $v_0=\sqrt{2⋅g⋅h0}$ (où g=9.81m/$s^2$, la constante de gravité terrestre). Immédiatement après le rebond, sa vitesse est $v_1=ϵ⋅v0$ (où ϵ est le coefficient de rebond de la balle). Elle remonte alors à la hauteur $h1=\frac{v^2}{2⋅g}$.
+
+Ecrire un programme C++ qui calcule et affiche la hauteur à laquelle la balle remonte après un nombre donné de rebonds. Les données suivantes seront entrées par l'utilisateur et le programme devra vérifier la validité partielle de ces données (partielle… car on supposera que l'utilisateur entre bien une valeur numérique) :
+- ϵ, le coefficient de rebond, tel que 0≤ϵ<1
+- h0. la hauteur initiale, telle que h0≥0
+- n , le nombre de rebonds, tel que n≥0
+
+**IMPORTANT**
+- Pour calculer la racine carrée d'un valeur `x`, on écrit `sqrt(x)` en C++. Il faut également inclure la libraire `<cmath>`
+- Pour la vérification des saisies utilisateur, utiliser des boucles `do … while`.
+- Cherchez à résoudre le problème, non pas du point de vue formel (équations), mais par simulation du système physique.
+**code** :
+```c++
+const double gravitation = 9.81;  
+  
+double coeff;  
+do {  
+    std::cout << "Coefficient de rebond (0 <= coeff < 1) :";  
+    std::cin >> coeff;  
+} while (coeff < 0 || coeff >= 1);  
+  
+double height;  
+do {  
+    std::cout << "Hauteur initiale [m]  (h0 >= 0)        :";  
+    std::cin >> height;  
+} while (height < 0);  
+  
+double bounceNbr;  
+do {  
+    std::cout << "Nombre de rebonds     (n >= 0)         :";  
+    std::cin >> bounceNbr;  
+} while (bounceNbr < 0);  
+  
+double currentHeight;  
+for (int i = 0; i < bounceNbr; i++) {  
+    const double impactSpeed = std::sqrt(2*gravitation*height);  
+    const double speedBounce = coeff*impactSpeed;  
+    height = (speedBounce*speedBounce)/(2*gravitation);  
+}  
+  
+std::cout << "La hauteur atteinte apres " << bounceNbr << " rebonds : " << height << " [m]";
+```
+
+

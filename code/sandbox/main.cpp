@@ -439,6 +439,37 @@ void bank3() {
     std::cout << "Le montant cible est de " << final << " ans.";
 }
 
+void bounce() {
+    const double gravitation = 9.81;
+
+    double coeff;
+    do {
+        std::cout << "Coefficient de rebond (0 <= coeff < 1) :";
+        std::cin >> coeff;
+    } while (coeff < 0 || coeff >= 1);
+
+    double height;
+    do {
+        std::cout << "Hauteur initiale [m]  (h0 >= 0)        :";
+        std::cin >> height;
+    } while (height < 0);
+
+    double bounceNbr;
+    do {
+        std::cout << "Nombre de rebonds     (n >= 0)         :";
+        std::cin >> bounceNbr;
+    } while (bounceNbr < 0);
+
+    double currentHeight;
+    for (int i = 0; i < bounceNbr; i++) {
+        const double impactSpeed = std::sqrt(2*gravitation*height);
+        const double speedBounce = coeff*impactSpeed;
+        height = (speedBounce*speedBounce)/(2*gravitation);
+    }
+
+    std::cout << "La hauteur atteinte apres " << bounceNbr << " rebonds : " << height << " [m]";
+}
+
 int main () {
     //iterate();
     //crash();
@@ -456,5 +487,7 @@ int main () {
     //ects();
     //equations();
     //bank();
-    bank2();
+    //bank2();
+    //bank3();
+    bounce();
 }
