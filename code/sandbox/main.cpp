@@ -489,6 +489,29 @@ void starTriangle() {
     }
 }
 
+int pgcd(int a, int b) {
+    while (b!=0) {
+        const int tmp = b;
+        b = a%b;
+        a = tmp;
+    }
+    return std::abs(a);
+}
+
+void ppmc() {
+    int n1;
+    int n2;
+    do {
+        std::cout << "Donnez 2 nombres entiers positifs :";
+        std::cin >> n1;
+        std::cin >> n2;
+    } while (n1<0 || n2<0);
+
+    int res = std::abs(n1*n2)/pgcd(n1,n2);
+
+    printf("Le PPMC de %d et %d est : %d\n", n1, n2, res);
+}
+
 int main () {
     //iterate();
     //crash();
@@ -509,5 +532,6 @@ int main () {
     //bank2();
     //bank3();
     //bounce();
-    starTriangle();
+    //starTriangle();
+    ppmc();
 }
