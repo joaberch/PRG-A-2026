@@ -1141,3 +1141,103 @@ while (i < 10) {
 ```
 
 
+#### 25-rewrite-loop2
+Attention, dans les exercices qui suivent, votre code doit être valide quelque soit la valeur de `n` et les variables doivent avoir la même portée (scope) que dans le code original.
+
+1. Réécrire la boucle suivante avec une boucle `while`
+
+```c
+for (int i = 0; i < n; ++i) {
+   cout << i << endl;
+}
+--
+{
+	int i = 0;
+	while (i<n) {
+		cout << i << endl;
+		++i;
+	}
+}
+```
+
+2. Réécrire la boucle suivante avec une boucle `do ... while`
+
+```c
+for (int i = 0; i < n; ++i) {
+   cout << i << endl;
+}
+--
+
+if (int i = 0; i<n) {
+	do {
+		cout << i << endl;
+		++i;
+	} while(i<n);
+}
+```
+
+3. Réécrire la boucle suivante avec une boucle `for`
+
+```c
+int i = 0; 
+while (i-- > n) {
+   cout << i << endl;
+}
+--
+int i = 0;
+for (;i-->n;) {
+	cout << i << endl;
+}
+```
+
+4. Réécrire la boucle suivante avec une boucle `do ... while`
+
+```c
+int i = 0; 
+while (i-- > n) {
+   cout << i << endl;
+}
+--
+int i = 0;
+if (i-- > n) {
+	do {
+		cout << i << endl;
+	} while(i-- > n);
+}
+```
+
+5. Réécrire la boucle suivante avec une boucle `for`
+
+```c
+int i = 0; 
+do {
+  cout << i << endl;
+  ++i; 
+} while (i < n);
+--
+int i = 0;
+cout << i << endl;
+++i;
+for (;i<n;++i) { //(++i;i<n;++i)
+	cout << i << endl;
+}
+```
+
+6. Réécrire la boucle suivante avec une boucle `while`
+
+```c
+int i = 0; 
+do {
+  cout << i << endl;
+  ++i; 
+} while (i < n);
+--
+int i = 0;
+cout << i << endl;
+++i;
+while (++i; i<n) {
+	cout << i << endl;
+}
+```
+
+
