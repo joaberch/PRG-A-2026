@@ -1055,3 +1055,89 @@ void ppmc() {
 ```
 
 
+#### 24-rewrite-loop
+1. Réécrire la boucle suivante avec une boucle `while` Attention, votre code doit être valide quelque soit la valeur de départ de `i` et quelque soit l'utilisation subséquente de la valeur de `i` en sortie de la boucle
+
+```c++
+for (; i < 10; ++i) {
+   cout << i << endl;
+}
+--
+while (i<10) {
+std::cout << i << std::endl;
+++i;
+}
+```
+
+2. Réécrire la boucle suivante avec une boucle `do ... while`
+
+```c++
+for (; i < 10; ++i) {
+   cout << i << endl;
+}
+--
+do {
+	std::cout << i << std::endl;
+	++i;
+} while (i<10)
+```
+
+3. Réécrire la boucle suivante avec une boucle `for`
+
+```c
+while (i-- > 10) {
+   cout << i << endl;
+}
+--
+for (;i-- > 10;) {
+	std::cout << i << std::endl;
+}
+```
+
+4. Réécrire la boucle suivante avec une boucle `do ... while`
+
+```c
+while (i-- > 10) {
+   cout << i << endl;
+}
+--
+if (i<=10) {return;}
+do {
+	--i;
+	std::cout << i << std::endl;
+} while(i > 10)
+--i; //attentin à lui
+```
+
+5. Réécrire la boucle suivante avec une boucle `for`
+
+```c
+do {
+  cout << i << endl;
+  ++i; 
+} while (i < 10);
+--
+std::cout << i << endl;
+++i;
+for (;i<10;++i) {
+	std::cout << i << std::endl;
+}
+```
+
+6. Réécrire la boucle suivante avec une boucle `while`
+
+```c
+do {
+  cout << i << endl;
+  ++i; 
+} while (i < 10);
+--
+std::cout << i << std::endl;
+++i;
+while (i < 10) {
+	std::cout << i << std::endl;
+	++i;
+}
+```
+
+
