@@ -401,6 +401,22 @@ void bank() {
     std::cout << "Le montant cible est atteint apres " << year << " ans.";
 }
 
+void bank2() {
+    double initial;
+    double interest;
+    int year;
+    std::cout << "Entrez le montant initial > "; std:: cin >> initial;
+    std::cout << "Entrez le nombre d'annees > "; std:: cin >> year;
+    std::cout << "Entrez les interets > "; std:: cin >> interest;
+
+    double final = initial;
+    for (int i = 0; i < year; i++) {
+        final = final*(1+interest/100);
+    }
+
+    std::cout << "Le montant cible est de " << final << " ans.";
+}
+
 int main () {
     //iterate();
     //crash();
@@ -417,5 +433,6 @@ int main () {
     //primeNumberEratosthene();
     //ects();
     //equations();
-    bank();
+    //bank();
+    bank2();
 }

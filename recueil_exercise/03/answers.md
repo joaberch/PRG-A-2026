@@ -746,3 +746,30 @@ for (int i = -10; i <= 10; i += 3) {
 ```
 
 
+#### 17-bank2
+Ecrire un programme C++ qui, après avoir demandé à l'utilisateur de saisir
+- un montant initial
+- un taux d'intérêt annuel (en %)
+- un nombre d'années
+
+détermine et affiche le montant disponible sur le compte après ce nombre d'années
+- Les saisies utilisateur sont supposées correctes
+- Le taux d'intérêt annuel est supposé rester constant au cours du temps
+**code** :
+```c++
+double initial;  
+double interest;  
+int year;  
+std::cout << "Entrez le montant initial > "; std:: cin >> initial;  
+std::cout << "Entrez le nombre d'annees > "; std:: cin >> year;  
+std::cout << "Entrez les interets > "; std:: cin >> interest;  
+  
+double final = initial;  
+for (int i = 0; i < year; i++) {  
+    final = final*(1+interest/100);  
+}  
+  
+std::cout << "Le montant cible est de " << final << " ans.";
+```
+
+
