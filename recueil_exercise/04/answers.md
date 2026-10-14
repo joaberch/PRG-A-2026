@@ -92,3 +92,28 @@ bool isLeapYear(int year) {
 ```
 
 
+#### 05-list-char
+Ecrire une fonction qui prend 2 paramètres de type _char_ et qui affiche, sur une même ligne, tous les caractères non accentués compris entre deux paramètres _debut_ et _fin_, bornes comprises.  
+Rien n'est affiché si _debut_ > _fin_.
+
+Exemples
+- listerCaracteres('A', 'A') => A
+- listerCaracteres('A', 'C') => ABC
+- listerCaracteres('B', 'A') =>
+- listerCaracteres('0', '9') => 0123456789
+- listerCaracteres(65, 67) => ABC
+La fonction retourne un booléen indiquant si des caractères ont été affichés.
+**code** :
+```c++
+bool listChar(const char a, const char b) {  
+    if (a>b) {  
+        return false;  
+    }  
+    for (char i = a; i <= b; i++) {  
+        std::cout << i;  
+    }  
+    return true;  
+}
+```
+
+

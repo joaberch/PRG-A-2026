@@ -521,6 +521,16 @@ bool isLeapYear(int year) {
     return (year%4==0 && year%100!=0) || year%400==0;
 }
 
+bool listChar(const char a, const char b) {
+    if (a>b) {
+        return false;
+    }
+    for (char i = a; i <= b; i++) {
+        std::cout << i;
+    }
+    return true;
+}
+
 int main () {
-    std::cout << std::boolalpha << isLeapYear(2020) << std::endl;
+    listChar(65, 67);
 }
