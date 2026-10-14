@@ -334,3 +334,22 @@ int main() {
 | adr entier     | 0x16eea3698 |
 
 
+#### 12-adresse-permutation
+Reprendre l'exercice [02b-02 - permutation](https://github.com/HEIGVD-PRG1/PRG1_Recueil_Exercices/blob/main/04%20-%20Fonctions%20recursivite%20surcharge/08%20-%20permutation%20par%20reference.md) mais sans utiliser de référence `double& ref`
+**code** :
+```c++
+void adressePermutation(double* a, double* b, double* c) {  
+    const double temp = *a;  
+    *a = *b;  
+    *b = *c;  
+    *c = temp;  
+}  
+  
+int main () {  
+    double a = 1, b = 2, c = 3;  
+    adressePermutation(&a, &b, &c);  
+    std::cout << a << " " << b << " " << c << std::endl;  
+}
+```
+
+

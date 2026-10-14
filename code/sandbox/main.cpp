@@ -572,16 +572,15 @@ bool arithmetic(double a, double b, char sign, double& output) {
     return true;
 }
 
+void adressePermutation(double* a, double* b, double* c) {
+    const double temp = *a;
+    *a = *b;
+    *b = *c;
+    *c = temp;
+}
+
 int main () {
-    double output = 0; //base value
-    double a; std::cin >> a;
-    double b; std::cin >> b;
-    arithmetic(a, b, '+', output);
-    std::cout << output << std::endl;
-    arithmetic(a, b, '-', output);
-    std::cout << output << std::endl;
-    arithmetic(a, b, '*', output);
-    std::cout << output << std::endl;
-    arithmetic(a, b, '/', output);
-    std::cout << output << std::endl;
+    double a = 1, b = 2, c = 3;
+    adressePermutation(&a, &b, &c);
+    std::cout << a << " " << b << " " << c << std::endl;
 }
