@@ -551,11 +551,37 @@ double withdraw(double solde, double withdrawal) {
     return solde;
 }
 
+bool arithmetic(double a, double b, char sign, double& output) {
+    switch (sign) {
+        case '-':
+            output = a-b;
+            break;
+        case '+':
+            output = a+b;
+            break;
+        case '/':
+            output = a/b;
+            break;
+        case '*':
+            output = a*b;
+            break;
+        default:
+            return false;
+            break;
+    }
+    return true;
+}
+
 int main () {
-    double solde = 500;
-    const double withdrawAmount = 300;
-    std::cout << "Solde initial du compte = " << solde << std::endl;
-    std::cout << "Premier retrait : " << withdrawAmount << std::endl;
-    solde = withdraw(solde, withdrawAmount);
-    solde = withdraw(solde, withdrawAmount);
+    double output = 0; //base value
+    double a; std::cin >> a;
+    double b; std::cin >> b;
+    arithmetic(a, b, '+', output);
+    std::cout << output << std::endl;
+    arithmetic(a, b, '-', output);
+    std::cout << output << std::endl;
+    arithmetic(a, b, '*', output);
+    std::cout << output << std::endl;
+    arithmetic(a, b, '/', output);
+    std::cout << output << std::endl;
 }

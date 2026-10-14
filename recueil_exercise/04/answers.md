@@ -247,3 +247,46 @@ double withdraw(double solde, double withdrawal) {
 ```
 
 
+#### 10-arithmetic-operation
+Ecrire une fonction qui reçoit en paramètres d'entrée 2 nombres réels (de type double) et un caractère, et qui fournit en paramètre de sortie le résultat correspondant à l'une des 4 opérations appliquées à ses 2 premiers paramètres, en fonction de la valeur du troisième paramètre, à savoir : addition pour le caractère '+', soustraction pour '-', multiplication pour '$*$' et division pour '/'. Si l'un de ces 4 caractères est passé en argument, la fonction doit renvoyer true comme valeur (statut) de retour; dans le cas contraire, elle doit renvoyer false. Ne pas tenir compte des risques de division par zéro.
+
+Ecrire aussi un petit programme (main) utilisant cette fonction pour effectuer les 4 opérations sur les 2 nombres fournis en entrée par l'utilisateur. Ne pas tenir compte des éventuelles erreurs de saisie utilisateur.
+**code** :
+```c++
+bool arithmetic(double a, double b, char sign, double& output) {  
+    switch (sign) {  
+        case '-':  
+            output = a-b;  
+            break;  
+        case '+':  
+            output = a+b;  
+            break;  
+        case '/':  
+            output = a/b;  
+            break;  
+        case '*':  
+            output = a*b;  
+            break;  
+        default:  
+            return false;  
+            break;  
+    }  
+    return true;  
+}  
+  
+int main () {  
+    double output = 0; //base value  
+    double a; std::cin >> a;  
+    double b; std::cin >> b;  
+    arithmetic(a, b, '+', output);  
+    std::cout << output << std::endl;  
+    arithmetic(a, b, '-', output);  
+    std::cout << output << std::endl;  
+    arithmetic(a, b, '*', output);  
+    std::cout << output << std::endl;  
+    arithmetic(a, b, '/', output);  
+    std::cout << output << std::endl;  
+}
+```
+
+
