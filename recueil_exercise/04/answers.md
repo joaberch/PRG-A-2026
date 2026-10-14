@@ -80,3 +80,15 @@ void volPyramide(const double base, const double largeur, const double hauteur) 
 ```
 
 
+#### 04-bissextile-year
+Ecrire un programme C++ affichant à l'écran si les années 1900, 2000, 2010 et 2020 sont bissextiles ou non.
+
+Pour ce faire, écrire une **fonction booléenne** _estBissextile_ (donc, ne pas utiliser des `if`) prenant en paramètre l'année à tester.
+**code** :
+```c++
+bool isLeapYear(int year) {  
+    return (year%4==0 && year%100!=0) || year%400==0;  
+}
+```
+
+

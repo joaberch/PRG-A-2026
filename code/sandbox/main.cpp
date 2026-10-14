@@ -517,7 +517,10 @@ void volPyramide(const double base, const double largeur, const double hauteur) 
     printf("Le volume de la pyramide de base %.f, largeur : %.f, hauteur : %.f est %.1f\n", base, largeur, hauteur, volume);
 }
 
+bool isLeapYear(int year) {
+    return (year%4==0 && year%100!=0) || year%400==0;
+}
+
 int main () {
-    volPyramide(10,3.5,12);
-    volPyramide(3.6,2.4,2.7);
+    std::cout << std::boolalpha << isLeapYear(2020) << std::endl;
 }
