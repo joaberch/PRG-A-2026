@@ -512,26 +512,12 @@ void ppmc() {
     printf("Le PPMC de %d et %d est : %d\n", n1, n2, res);
 }
 
+void volPyramide(const double base, const double largeur, const double hauteur) {
+    double volume = base*largeur*hauteur/3.;
+    printf("Le volume de la pyramide de base %.f, largeur : %.f, hauteur : %.f est %.1f\n", base, largeur, hauteur, volume);
+}
+
 int main () {
-    //iterate();
-    //crash();
-    //debugCrash();
-    //sizeVar();
-    //test();
-    //mantis();
-    //smallestFloat();
-    //references();
-    //litre();
-    //convert();
-    //dayInMonth();
-    //primeNumberAtkin();
-    //primeNumberEratosthene();
-    //ects();
-    //equations();
-    //bank();
-    //bank2();
-    //bank3();
-    //bounce();
-    //starTriangle();
-    ppmc();
+    volPyramide(10,3.5,12);
+    volPyramide(3.6,2.4,2.7);
 }
