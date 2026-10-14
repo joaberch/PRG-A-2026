@@ -538,8 +538,24 @@ void permutation(double& a, double& b, double& c) {
     c = temp;
 }
 
+double withdraw(double solde, double withdrawal) {
+    if (solde < 0) {
+        return 0;
+    }
+    if (withdrawal > solde) {
+        std::cout << "Retrait de " << solde << " le solde est maintenant a 0." << std::endl;
+        return 0;
+    }
+    solde -= withdrawal;
+    std::cout << "Retrait de " << withdrawal << " le solde est maintenant a " << solde << std::endl;
+    return solde;
+}
+
 int main () {
-    double a = 1, b = 2, c = 3;
-    permutation(a, b, c);
-    std::cout << a << " " << b << " " << c << std::endl;
+    double solde = 500;
+    const double withdrawAmount = 300;
+    std::cout << "Solde initial du compte = " << solde << std::endl;
+    std::cout << "Premier retrait : " << withdrawAmount << std::endl;
+    solde = withdraw(solde, withdrawAmount);
+    solde = withdraw(solde, withdrawAmount);
 }

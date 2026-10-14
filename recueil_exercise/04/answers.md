@@ -213,3 +213,37 @@ void permutation(double& a, double& b, double& c) {
 ```
 
 
+#### 09-withdraw-money
+Ecrire un programme C++ mettant à disposition une fonction permettant de retirer un certain montant sur un compte bancaire.
+
+La fonction :
+- doit prendre 2 paramètres : le solde courant du compte et le montant du retrait (que l'on supposera tous deux ≥ 0)
+- doit vérifier les contraintes métier suivantes :
+    - le solde courant ne peut jamais être négatif
+    - si le solde courant est insuffisant pour retirer l'intégralité du montant souhaité, seul le montant maximal possible est retiré
+- doit retourner le montant du retrait effectif réalisé
+
+Vérifier le bon fonctionnement de la fonction en appliquant le scénario de test suivant :
+
+- Solde initial du compte = 500
+- Premier retrait = 300
+- Afficher le montant du retrait effectif et le solde courant du compte
+- Deuxième retrait = 300
+- Afficher le montant du retrait effectif et le solde courant du compte
+**code** :
+```c++
+double withdraw(double solde, double withdrawal) {  
+    if (solde < 0) {  
+        return 0;  
+    }  
+    if (withdrawal > solde) {  
+        std::cout << "Retrait de " << solde << " le solde est maintenant a 0." << std::endl;  
+        return 0;  
+    }  
+    solde -= withdrawal;  
+    std::cout << "Retrait de " << withdrawal << " le solde est maintenant a " << solde << std::endl;  
+    return solde;  
+}
+```
+
+
