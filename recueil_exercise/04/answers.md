@@ -200,3 +200,16 @@ x = 4 y = 3
 ```
 
 
+#### 08-permutation
+Ecrire un programme C++ qui met à disposition une fonction sans valeur de retour et prenant 3 paramètres de type double permettant d'effectuer une permutation circulaire droite de ces 3 valeurs.
+**code** :
+```c++
+void permutation(double& a, double& b, double& c) {  
+    double temp = a;  
+    a = b;  
+    b = c;  
+    c = temp;  
+}
+```
+
+

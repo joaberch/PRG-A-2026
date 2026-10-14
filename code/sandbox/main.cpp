@@ -531,6 +531,15 @@ bool listChar(const char a, const char b) {
     return true;
 }
 
+void permutation(double& a, double& b, double& c) {
+    double temp = a;
+    a = b;
+    b = c;
+    c = temp;
+}
+
 int main () {
-    listChar(65, 67);
+    double a = 1, b = 2, c = 3;
+    permutation(a, b, c);
+    std::cout << a << " " << b << " " << c << std::endl;
 }
