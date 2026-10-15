@@ -411,3 +411,26 @@ x = 2
 ```
 
 
+#### 14-minimum
+Écrire une fonction _min_ qui retourne le minimum de 3 valeurs reçues en paramètre.
+Les instructions suivantes doivent être possibles:
+```c++
+int a = 5;
+int b = 2;
+int c = 9;
+
+cout << min(a, b, c);
+min(a, b, c) = 1;
+int& d = min(a, b, c);
+```
+**NB** ne pas utiliser de `if`
+**code**
+```c++
+int min(int a, int b, int c) {  
+    int min = b<c ? b : c;  
+    min = a<b && a<c ? a : min;  
+    return min;  
+}
+```
+
+

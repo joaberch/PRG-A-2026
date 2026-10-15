@@ -579,8 +579,13 @@ void adressePermutation(double* a, double* b, double* c) {
     *c = temp;
 }
 
+int min(int a, int b, int c) {
+    int min = b<c ? b : c;
+    min = a<b && a<c ? a : min;
+    return min;
+}
+
 int main () {
-    double a = 1, b = 2, c = 3;
-    adressePermutation(&a, &b, &c);
-    std::cout << a << " " << b << " " << c << std::endl;
+    int a = min(9,8,10);
+    std::cout << a;
 }
