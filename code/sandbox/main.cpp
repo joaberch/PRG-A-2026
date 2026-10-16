@@ -593,10 +593,13 @@ int factorial(int n) {
 }
 
 int fibo(int number) {
-    if ()
+    if (number < 2) {
+        return number;
+    }
+    return fibo(number-1) + fibo(number-2);
 }
 
 int main () {
-    int a = fibo(20);
+    int a = fibo(2);
     std::cout << a << std::endl;
 }

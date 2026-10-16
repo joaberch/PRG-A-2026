@@ -621,3 +621,80 @@ f6(8, 5);
 ```
 
 
+#### 19-surcharge
+Les fonctions proposées peuvent-elles être surcharges et utilisées correctement ?
+
+```c++
+// no 1
+void f(int)      { /* no 1 */ }
+void f(int, int) { /* no 2 */ }
+--
+oui
+```
+
+```c++
+// no 2
+void f(int)    { /* no 1 */ }
+void f(double) { /* no 2 */ }
+--
+oui
+```
+
+```c++
+// no 3
+void f(int) { /* no 1 */ }
+int  f(int) { /* no 2 */ }
+--
+non
+```
+
+```c++
+// no 4
+void f(int i=0) { /* no 1 */ }
+void f(int    ) { /* no 2 */ }
+--
+non
+```
+
+```c++
+// no 5
+void f(int&) { /* no 1 */ }
+void f(int ) { /* no 2 */ }
+--
+oui (peut poser problème)
+```
+_Ex_ :
+```c++
+const int CSTE = 2;
+int i;
+
+f(CSTE); // appel de la no 2
+f(2);    // appel de la no 2
+f(i);    // ambiguité
+--
+
+```
+
+```c++
+// no 6
+void f(const int&) { /* no 1 */ }
+void f(int )       { /* no 2 */ }
+--
+oui mais err
+```
+
+```c++
+// no 7
+void f(int ) { /* no 1 */ }
+void f(int*) { /* no 2 */ }
+--
+oui
+```
+
+```c
+// no 8
+void f(const int*) { /* no 1 */ }
+void f(      int*) { /* no 2 */ }
+--
+oui mais err possible
+```
