@@ -514,3 +514,26 @@ int factorial(int n) {
 ```
 
 
+#### 17-Fibonacci
+La suite de Fibonacci est décrite comme suit
+
+$F_n=F_{n−1}+F_{n−2}\text{ avec }F_0=0 et F_1=1$
+
+|F0|F1|F2|F3|F4|F5|F6|F7|Fn|
+|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+|0|1|1|2|3|5|8|13|...|
+
+Ecrire une fonction récursive _fibo_ qui retourne la valeur de `Fn` pour `n` reçu en paramètre (sans regarder l'exemple donné en cours ;-)).
+**code** :
+```c++
+int fibo(int time, int number1=0, int number2=1) {  
+    if (time == 0) {  
+        return number1;  
+    }  
+    int number=number1+number2;  
+  
+    return fibo(time-1, number2, number);  
+}
+```
+
+
