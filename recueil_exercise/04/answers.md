@@ -497,3 +497,20 @@ int main() {
 ```
 
 
+#### 16-factorielle
+La factorielle d'un nombre est décrite comme suit
+`5! = 1 * 2 * 3 * 4 * 5`  
+`6! = 1 * 2 * 3 * 4 * 5 * 6` ou `6! = 6 * 5!`  
+Ainsi `n! = n * (n-1)!` avec `1! = 1` et `0! = 1` pour `n >= 0`
+Ecrire une fonction récursive _facto_ qui retourne la valeur de `n!` pour _n_ reçu en paramètre (sans regarder l'exemple donné en cours ;-)).
+**code**
+```c++
+int factorial(int n) {  
+    if (n == 0) {  
+        return 1;  
+    }  
+    return n*factorial(n-1);  
+}
+```
+
+

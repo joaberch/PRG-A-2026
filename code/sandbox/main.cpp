@@ -585,7 +585,23 @@ int min(int a, int b, int c) {
     return min;
 }
 
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+    return n*factorial(n-1);
+}
+
+int fibo(int time, int number1=0, int number2=1) {
+    if (time == 0) {
+        return number1;
+    }
+    int number=number1+number2;
+
+    return fibo(time-1, number2, number);
+}
+
 int main () {
-    int a = min(9,8,10);
-    std::cout << a;
+    int a = fibo(20);
+    std::cout << a << std::endl;
 }
