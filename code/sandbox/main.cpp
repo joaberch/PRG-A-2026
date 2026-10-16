@@ -592,13 +592,8 @@ int factorial(int n) {
     return n*factorial(n-1);
 }
 
-int fibo(int time, int number1=0, int number2=1) {
-    if (time == 0) {
-        return number1;
-    }
-    int number=number1+number2;
-
-    return fibo(time-1, number2, number);
+int fibo(int number) {
+    if ()
 }
 
 int main () {
