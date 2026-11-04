@@ -6,9 +6,13 @@
 #include <iomanip>
 #include <unordered_map>
 #include <vector>
+#include <string>
+#include <format>
 
 #include "afficher.h"
 #include "saisir.h"
+
+using Vec3d = std::array<double,3>;
 
 void iterate() {
     int iterationNbr;
@@ -619,6 +623,51 @@ void saisir() {
     afficher("Rentre : ", input);
 }
 
-int main () {
-    saisir();
+std::string to_string(Vec3d a) {
+    return std::format("({},{},{})", a.at(0), a.at(1), a.at(2));
+}
+
+Vec3d produit(Vec3d a, double scalar) {
+    for (auto e : a) {
+        e*=scalar;
+    }
+    return a;
+}
+
+double produit_scalaire(Vec3d a, Vec3d b) {
+    return a.at(0)*b.at(0)+a.at(1)*b.at(1)+a.at(2)*b.at(2);
+}
+
+Vec3d produit_vectoriel(Vec3d u, Vec3d v) {
+    Vec3d c {0, 0, 0};
+    c.at(0) = u.at(1)*v.at(2)-u.at(2)*v.at(1);
+    c.at(1) = u.at(2)*v.at(0)-u.at(0)*v.at(2);
+    c.at(2) = u.at(0)*v.at(1)-u.at(1)*v.at(0);
+    return c;
+}
+
+void vectors() {
+    Vec3d a{1., 2., 3.};
+    Vec3d b{2., 4., 3.};
+    std::cout << "a = " << to_string(a) << std::endl
+         << "b = " << to_string(b) << std::endl;
+
+    Vec3d c = produit(a, 2.);
+    std::cout << "c = a*2 = " << to_string(c) << std::endl;
+
+    std::cout << "a.b = " << produit_scalaire(a, b)
+         << ", a.c = " << produit_scalaire(a, c)
+         << ", b.c = " << produit_scalaire(b, c) << std::endl;
+
+    Vec3d d = produit_vectoriel(a, b);
+    std::cout << "d = a^b = " << to_string(d) << std::endl;
+    std::cout << "a.d = " << produit_scalaire(a, d)
+         << ", b.d = " << produit_scalaire(b, d) << std::endl;
+
+    Vec3d e = produit_vectoriel(a, a);
+    std::cout << "e = a^a = " << to_string(e) << std::endl;
+}
+
+int main() {
+
 }
