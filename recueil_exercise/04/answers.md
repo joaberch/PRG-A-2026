@@ -698,3 +698,83 @@ void f(      int*) { /* no 2 */ }
 --
 oui mais err possible
 ```
+
+#### 20-lib
+Créer une librairie qui met à disposition 2 fonctions
+
+1. _saisir(..)_ qui recoit 3 paramètres
+    
+    - le message à afficher de type _string_
+    - la valeur min
+    - la valeur max
+    
+    La fonction retourne la valeur saisie dans l'intervalle [min .. max].  
+    **NB** les erreurs de flux ne sont pas gérées
+    
+2. _afficher(..)_ qui recoit 2 paramètres
+    
+    - le message à afficher de type _string_
+    - la valeur à afficher
+    
+    Aucune valeur de retour est prévue.
+    
+
+**Important**
+
+- la problématique des inclusions multiples doit être gérée
+- les librairies utiles doivent être incluses au bon endroit
+**main.cpp**
+```c++
+const int input = saisir("Valeur", 1, 10);  
+afficher("Rentre : ", input);
+```
+**saisir.h**
+```c++
+#ifndef SANDBOX_SAISIR_H  
+#define SANDBOX_SAISIR_H  
+#include <string>  
+  
+int saisir(const std::string& message, int min, int max);  
+  
+#endif
+```
+**saisir.cpp**
+```c++
+#include "saisir.h"  
+  
+#include <iostream>  
+#include <ostream>  
+#include <string>  
+  
+int saisir(const std::string& message, const int min, const int max) {  
+    int input;  
+    do {  
+        std::cout << message << std::endl;  
+        std::cin >> input;  
+    } while (input < min || input > max);  
+    return input;  
+}
+```
+**afficher.h**
+```c++
+#ifndef SANDBOX_AFFICHER_H  
+#define SANDBOX_AFFICHER_H  
+#include <string>  
+  
+void afficher(const std::string& message, int value);  
+  
+#endif
+```
+**afficher.cpp**
+```c++
+#include "afficher.h"  
+  
+#include <iostream>  
+#include <ostream>  
+  
+void afficher(const std::string& message, const int value) {  
+    std::cout << message << " " << value << std::endl;  
+}
+```
+
+

@@ -5,6 +5,10 @@
 #include <cmath>
 #include <iomanip>
 #include <unordered_map>
+#include <vector>
+
+#include "afficher.h"
+#include "saisir.h"
 
 void iterate() {
     int iterationNbr;
@@ -599,7 +603,22 @@ int fibo(int number) {
     return fibo(number-1) + fibo(number-2);
 }
 
+void checkCapacity() {
+    std::vector<int> v;
+    size_t c = v.capacity();
+    std::cout << c << ' ';
+    for (int i = 0; i < 100000; ++i) {
+        v.push_back(i);
+        if (c != v.capacity())
+            std::cout << (c = v.capacity()) << ' ';
+    }
+}
+
+void saisir() {
+    const int input = saisir("Valeur", 1, 10);
+    afficher("Rentre : ", input);
+}
+
 int main () {
-    int a = fibo(2);
-    std::cout << a << std::endl;
+    saisir();
 }

@@ -4,4 +4,7 @@ project(test)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(test main.cpp
-        main.cpp)
+        saisir.cpp
+        saisir.h
+        afficher.cpp
+        afficher.h)
